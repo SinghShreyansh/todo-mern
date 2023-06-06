@@ -12,7 +12,10 @@ const Connection = () => {
 
     const MONGODB_URI = `mongodb+srv://${USERNAME}:${PASSWORD}@wtlab.d85wdmr.mongodb.net/todomern?retryWrites=true&w=majority`
 
-    mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+    mongoose.connect(MONGODB_URI, {  useCreateIndex: true,
+   useNewUrlParser: true,
+   useFindAndModify: false,
+   useUnifiedTopology: true });
 
     mongoose.connection.on('connected', () => {
         console.log('Database connected Successfully');
